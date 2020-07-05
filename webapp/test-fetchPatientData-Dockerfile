@@ -1,4 +1,4 @@
-FROM localubuntu20:20200704
+FROM ubuntu:focal
 
 RUN apt update && apt -y upgrade
 RUN apt -y install \

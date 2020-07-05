@@ -1,4 +1,4 @@
-FROM localubuntu20:20200704
+FROM ubuntu:focal
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt -y upgrade
