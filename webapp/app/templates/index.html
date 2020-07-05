@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="{{ url_for('results') }}" method="post" novalidate>
+    <!-- The form.hidden_tag() template argument generates a hidden field that includes a token
+         that is used to protect the form against CSRF attacks. All you need to do to have the
+         form protected is include this hidden field and have the SECRET_KEY variable defined in
+         the Flask configuration. If you take care of these two things, Flask-WTF does the rest
+         for you. -->
+    {{ form.hidden_tag() }}
+    <div class="breather">&nbsp</div>
+    <center>
+    <h2> Please insert the name of the country you want to track! </h2>
+    <p>
+      {{ form.country(size=64) }}<br>
+    </p>
+    </center>
+
+  </form>
+
+{% endblock %}

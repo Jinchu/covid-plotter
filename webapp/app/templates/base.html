@@ -1,0 +1,130 @@
+<html>
+
+<head>
+  {% if title %}
+  <title>{{ title }} - Tracking Covid-19 Cases by Country</title>
+  {% else %}
+  <title>Tracking Covid-19 Cases by Country</title>
+  {% endif %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <article class="cc_article">
+    <div>
+      Short Cuts:
+      <a href="{{ url_for('covid') }}">Home</a>
+      <a href="{{ url_for('finland') }}">Finland</a>
+      <a href="{{ url_for('sweden') }}">Sweden</a>
+      <a href="{{ url_for('denmark') }}">Denmark</a>
+      <a href="{{ url_for('norway') }}">Norway</a>
+      <a href="{{ url_for('germany') }}">Germany</a>
+      <a href="{{ url_for('south_korea') }}">South-Korea</a>
+      <a href="{{ url_for('us') }}">USA</a>
+    </div>
+
+    {% block content %}{% endblock %}
+  </article>
+
+  <style>
+    html {
+      font-family: Cambria, Cochin, Georgia, 'Times New Roman', Times, serif;
+      font-size: 18px;
+      background: white;
+      color: #474747
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      color: black;
+      text-decoration: underline wavy var(--yellow);
+    }
+
+    h1 {
+      font-size: 40px;
+      font-style: italic;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-style: italic;
+      font-weight: 100;
+      margin: 0;
+    }
+
+    .cc_article {
+      display: grid;
+      max-width: 1400px;
+      margin-top: 20px;
+      margin-bottom: 200px;
+      margin-right: 100px;
+      margin-left: 100px;
+      grid-gap: 10px 50px;
+      grid-template-columns: 1fr 5fr 1fr;
+    }
+
+    .breather {
+      display: grid;
+      grid-template-rows: (repeat(1, 2fr));
+      grid-auto-rows: minmax(150px, auto);
+      grid-gap: 10px 50px;
+    }
+    .cc_article>* {
+      grid-column: 2 / -2;
+    }
+
+    .cc_article>center {
+      margin: 0;
+      grid-column: 1 / -1;
+    }
+
+    figcaption {
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .cc_article {
+        grid-template-columns: 3fr 34fr 5fr;
+        grid-gap: 9px;
+        margin-top: 20px;
+        margin-bottom: 100px;
+        margin-right: 50px;
+        margin-left: 50px;
+
+      }
+    }
+
+    @media (max-width: 700px) {
+      .cc_article {
+        grid-template-columns: 2fr 34fr 3fr;
+        grid-gap: 3px;
+        margin-top: 20px;
+        margin-bottom: 80px;
+        margin-right: 0px;
+        margin-left: 0px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .cc_article {
+        grid-column: 1 / -1;
+        grid-template-columns: 1fr 34fr 1fr;
+        grid-gap: 0px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        margin-right: 0px;
+        margin-left: 0px;
+      }
+    }
+  </style>
+</body>
+
+</html>

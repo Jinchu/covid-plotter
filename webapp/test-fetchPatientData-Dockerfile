@@ -1,0 +1,18 @@
+FROM localubuntu20:20200704
+
+RUN apt update && apt -y upgrade
+RUN apt -y install \
+            python3-bs4 \
+            wget
+RUN update-ca-certificates
+
+RUN useradd -m tracker
+USER tracker
+RUN mkdir -p /home/tracker/webapp/
+COPY . /home/tracker/webapp/
+WORKDIR /home/tracker/webapp/
+
+LABEL local.covid-web.release-date="Tue, 30 Jun 2020"
+LABEL local.covid-web.version="20200630"
+
+CMD ["python3", "fetchPatientData.py"]

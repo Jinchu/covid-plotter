@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>&nbsp</div>
+<center>
+<h2> Covid-19 in {{country}} </h2>
+
+<figure>
+  <img src="{{ file_path }}">
+</figure>
+</center>
+
+<form action="{{ url_for('results') }}" method="post" novalidate>
+  {{ form.hidden_tag() }}
+  <h2> Interested in an another country? Go ahead! </h2>
+  <p>
+    {{ form.country(size=64) }}<br>
+  </p>
+
+</form>
+
+{% endblock %}
