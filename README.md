@@ -5,21 +5,21 @@ Simple python webapp to plot graphs on current Covid-19 situation around the wor
 ## Before you start
 
 You need to define the method for delivering static assets, in this case, images. This is done
-in `config.py`. Just modify the line following line.
+in `config.py`. Just modify the following line.
 
 ```python3
 STATIC_CONT = 'https://www.example.com/plots/'
 ```
 
 I personally have a separate volume under my nginx container, which is shared with this app.
-Onces a stats of a country are requested the resulted graph is stored in to that volume and served
+Once stats of a country are requested the resulting graph is stored into that volume and served
 by the nginx. I have configured that url in my version of `config.py`.
 
 ## Testing
 
 First of all jump to the webapp directory. It's probably wise to check that
 nothing has got broken. Rename `test-fetchPatientData-Dockerfile` to `Dockerfile`
-build and run. This is does very basic unit testing.
+build and run. This does very basic unit testing.
 
 ```bash
 cp Dockerfile true-Dockerfile
