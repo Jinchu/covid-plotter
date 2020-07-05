@@ -1,6 +1,7 @@
 from flask import render_template, url_for
 from app import app
 from app.forms import CountryForm
+from config import STATIC_CONT
 
 import fetchPatientData
 import visualizeData
@@ -77,7 +78,7 @@ def getCountryStats(country, form=None):
         cPlot = visualizeData.CovidPlot(raw.total_cases, raw.daily_new_cases)
     cPlot.plotRollingAverageNewCasesToTotal(country, folder)
     # This url needs to point to a place that provides the delivery of static assets.
-    plot_url = 'https://www.example.com/plots/' + country + '-new-to-total.png'
+    plot_url = STATIC_CONT + country + '-new-to-total.png'
 
     return render_template('results.html', title='Results', country=country, file_path=plot_url,
                            form=form)
